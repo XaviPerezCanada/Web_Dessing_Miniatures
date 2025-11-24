@@ -1,200 +1,339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Blocks</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Landing inspirada en Vinted — Responsive (Tailwind)</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Small custom styles for the carousel + scroll snapping */
+        .snap-x {
+            scroll-snap-type: x mandatory;
+        }
+
+        .snap-center {
+            scroll-snap-align: center;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
 
-<body class="bg-white text-gray-800">
-
-    <header class="bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div class="text-lg font-bold text-gray-800">Green Blocks</div>
-            <nav class="space-x-4 flex items-center">
-                <a href="#" class="text-sm hover:text-indigo-600">Shop</a>
-                <a href="#" class="text-sm hover:text-indigo-600">Cursos</a>
-                <a href="#" class="text-sm hover:text-indigo-600">Personal</a>
-                <button
-                    class="bg-black text-white px-4 py-2 rounded-sm font-semibold text-xs ml-4 hover:bg-gray-700 transition">Loggin</button>
-            </nav>
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-white shadow-sm sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <button id="sidebarToggle" class="lg:hidden p-2 rounded-md hover:bg-gray-100"
+                        aria-label="Abrir filtros">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <a href="#" class="text-xl font-semibold">MiMercado</a>
+                </div>
+                <nav class="hidden md:flex items-center gap-4">
+                    <a class="text-sm hover:underline" href="#tutorials">Tutorials</a>
+                    <a class="text-sm hover:underline" href="#productos">Productos</a>
+                    <button class="bg-indigo-600 text-white text-sm px-3 py-2 rounded-md">Vender</button>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <section class="relative h-96 flex items-center justify-center text-center mb-16">
-        <div class="absolute inset-0 bg-gray-700 bg-opacity-50">
-            <img src="asset/Carrusel.png" alt="Peras" class="w-full h-full object-cover mix-blend-multiply">
-        </div>
-        <div class="relative z-10 text-white">
-            <h1 class="text-4xl sm:text-6xl font-extrabold mb-4 drop-shadow-lg">Green Blocks</h1>
-            <p class="text-xl mb-6 drop-shadow-md">La última colección para esta temporada.</p>
-            <button class="bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-700 transition">Comprar
-                ahora</button>
-        </div>
-    </section>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        <section class="space-y-12">
-            <div class="flex flex-col md:flex-row gap-8 items-center">
-                <div class="md:w-1/2 space-y-4">
-                    <h2 class="text-2xl font-bold">Productos Bajo Pedidos</h2>
-                    <p class="text-gray-600 max-w-lg">Entre nuestros productos encontramos que podemos pintar tus
-                        mejores miniaturas olvidades a distintos niveles.</p>
-                    <div class="pt-2 flex space-x-4">
-                        <button
-                            class="bg-black text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-700 transition">Ver
-                            Mas</button>
-                        <button
-                            class="border border-gray-400 text-gray-800 px-6 py-2 rounded-md font-semibold hover:bg-gray-100 transition">Mas
-                            Informacion</button>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="asset/img1.jpeg" alt="Producto destacado 1"
-                        class="w-full h-auto object-cover rounded-lg shadow-md">
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="order-1 md:order-1">
-                    <img src="asset/img2.jpeg" alt="Producto destacado 2"
-                        class="w-full h-auto object-cover rounded-lg shadow-md">
-                </div>
-                <div class="order-2 md:order-2 space-y-4">
-                    <h2 class="text-2xl font-bold">Aprende A Pintar</h2>
-                    <p class="text-gray-600 max-w-lg">Ademas de contar con nuestros productos nos interesamos por la
-                        comunidad, nos interesamos en mejorarla y evolucionar con ellos.</p>
-                    <div class="pt-2 flex space-x-4">
-                        <button
-                            class="bg-black text-white px-6 py-2 rounded-md font-semibold hover:bg-gray-700 transition">Ver
-                            Mas</button>
-                        <button
-                            class="border border-gray-400 text-gray-800 px-6 py-2 rounded-md font-semibold hover:bg-gray-100 transition">Mas
-                            Informacion</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-gray-200 my-16">
-
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-8">Encabezado de sección</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <div class="lg:flex lg:gap-8">
+            <aside id="sidebar"
+                class="w-full lg:w-72 mb-6 lg:mb-0 lg:sticky lg:top-24 transform lg:translate-x-0 transition-transform duration-200 bg-white p-4 rounded-lg shadow-sm hidden lg:block">
+                <h3 class="font-semibold mb-3">Filtros</h3>
                 <div class="space-y-4">
-                    <img src="https://www.iloveimg.com/es/redimensionar-imagen" alt="Producto 1"
-                        class="w-full h-96 object-cover rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mt-2">Descripción del producto</h3>
-                    <p class="text-gray-600 text-sm">Corem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                    <p class="font-bold text-lg text-gray-900">$15.00</p>
-                </div>
-
-                <div class="grid grid-rows-2 gap-8">
-                    <div class="flex flex-col space-y-3">
-                        <img src="https://www.shopify.com/es/blog/6-pasos-para-optimizar-el-flujo-de-trabajo-de-tus-fotografias-de-producto"
-                            alt="Producto 2" class="w-full h-48 object-cover rounded-lg shadow-md">
-                        <h4 class="text-lg font-semibold">Producto</h4>
-                        <p class="text-gray-600 text-sm">FCD</p>
-                    </div>
-                    <div class="flex flex-col space-y-3">
-                        <img src="https://www.youtube.com/watch?v=f5SAXOcuVRY" alt="Producto 3"
-                            class="w-full h-48 object-cover rounded-lg shadow-md">
-                        <h4 class="text-lg font-semibold">Producto</h4>
-                        <p class="text-gray-600 text-sm">Descripción del producto con texto sin alargar.</p>
-                        <p class="font-bold text-lg text-gray-900">$10.00</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="border-gray-200 my-16">
-
-        <section class="mb-16">
-            <h2 class="text-2xl font-bold mb-8">Encabezado de sección</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="space-y-8">
-                    <div class="flex space-x-4">
-                        <div class="w-6 h-6 bg-gray-300 rounded-full flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-lg">Subtítulo</h3>
-                            <p class="text-gray-600 text-sm">Texto corto para describir el beneficio, texto para
-                                acompañar los puntos clave, puede ser largo.</p>
+                    <div>
+                        <p class="text-sm font-medium mb-2">Categoría</p>
+                        <div class="space-y-2 text-sm">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="categoria" value="ropa" class="h-4 w-4" />
+                                <span>Ropa</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="categoria" value="accesorios" class="h-4 w-4" />
+                                <span>Accesorios</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="categoria" value="electronica" class="h-4 w-4" />
+                                <span>Electrónica</span>
+                            </label>
                         </div>
                     </div>
-                    <div class="flex space-x-4">
-                        <div class="w-6 h-6 bg-gray-300 rounded-full flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-lg">Subtítulo</h3>
-                            <p class="text-gray-600 text-sm">Texto para acompañar los puntos clave, puede ser largo como
-                                este ejemplo para rellenar la línea.</p>
+
+                    <div>
+                        <p class="text-sm font-medium mb-2">Condición</p>
+                        <div class="space-y-2 text-sm">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="estado" value="nuevo" class="h-4 w-4" />
+                                <span>Nuevo</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" name="estado" value="usado" class="h-4 w-4" />
+                                <span>Usado</span>
+                            </label>
                         </div>
+                    </div>
+
+                    <div>
+                        <p class="text-sm font-medium mb-2">Talla</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="text-sm p-2 border rounded cursor-pointer">
+                                <input type="checkbox" name="talla" value="s" class="hidden" /> S
+                            </label>
+                            <label class="text-sm p-2 border rounded cursor-pointer">
+                                <input type="checkbox" name="talla" value="m" class="hidden" /> M
+                            </label>
+                            <label class="text-sm p-2 border rounded cursor-pointer">
+                                <input type="checkbox" name="talla" value="l" class="hidden" /> L
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t">
+                        <button id="clearFilters" class="text-sm text-gray-600 hover:underline">Limpiar filtros</button>
                     </div>
                 </div>
+            </aside>
 
-                <div class="space-y-8">
-                    <div class="flex space-x-4">
-                        <div class="w-6 h-6 bg-gray-300 rounded-full flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-lg">Subtítulo</h3>
-                            <p class="text-gray-600 text-sm">Texto corto para describir el beneficio, texto para
-                                acompañar los puntos clave, puede ser largo.</p>
+            <section class="flex-1">
+                <section id="tutorials" class="mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-bold">Tutoriales</h2>
+                        <div class="flex gap-2 items-center">
+                            <button aria-label="Anterior" class="carousel-prev p-2 rounded-md hover:bg-gray-100">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <button aria-label="Siguiente" class="carousel-next p-2 rounded-md hover:bg-gray-100">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
-                    <div class="flex space-x-4">
-                        <div class="w-6 h-6 bg-gray-300 rounded-full flex-shrink-0"></div>
-                        <div>
-                            <h3 class="font-semibold text-lg">Subtítulo</h3>
-                            <p class="text-gray-600 text-sm">Texto para acompañar los puntos clave, puede ser largo como
-                                este ejemplo para rellenar la línea.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
+                    <div id="carousel"
+                        class="overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-4 py-2 px-1">
+
+                        <!-- Card 1 -->
+                        <article
+                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
+                            <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <!-- Thumbnail (placeholder) -->
+                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor">
+                                        <path d="M5 3v18l15-9L5 3z" />
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold">Cómo publicar tu primer producto</h3>
+                                <p class="text-sm text-gray-500 mt-1">Guía rápida: fotos, descripción y precio.</p>
+                            </a>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article
+                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
+                            <a href="#" class="group block" aria-label="Ver tutorial 2">
+                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor">
+                                        <path d="M5 3v18l15-9L5 3z" />
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold">Mejorar fotos para vender más</h3>
+                                <p class="text-sm text-gray-500 mt-1">Consejos sencillos de iluminación y encuadre.</p>
+                            </a>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article
+                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
+                            <a href="#" class="group block" aria-label="Ver tutorial 3">
+                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor">
+                                        <path d="M5 3v18l15-9L5 3z" />
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold">Comunicar con compradores</h3>
+                                <p class="text-sm text-gray-500 mt-1">Plantillas y forma de negociar.</p>
+                            </a>
+                        </article>
+
+                        <!-- Card 4 (ejemplo adicional) -->
+                        <article
+                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
+                            <a href="#" class="group block" aria-label="Ver tutorial 4">
+                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
+                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor">
+                                        <path d="M5 3v18l15-9L5 3z" />
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold">Envíos: cómo calcularlos</h3>
+                                <p class="text-sm text-gray-500 mt-1">Ajusta gastos y plazos para ganar confianza.</p>
+                            </a>
+                        </article>
+
+                    </div>
+                </section>
+
+                <section id="productos">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-bold">Productos</h2>
+                        <div class="text-sm text-gray-600">Mostrando 24 resultados</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="https://via.placeholder.com/400x300?text=Producto+1" alt="Producto 1"
+                                    class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Chaqueta vintage</h3>
+                                <p class="text-sm text-gray-500">Talla M · Madrid</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€35</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="https://via.placeholder.com/400x300?text=Producto+2" alt="Producto 2"
+                                    class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Zapatillas running</h3>
+                                <p class="text-sm text-gray-500">Talla 42 · Barcelona</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€49</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="https://via.placeholder.com/400x300?text=Producto+3" alt="Producto 3"
+                                    class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Bolso de piel</h3>
+                                <p class="text-sm text-gray-500">Único · Sevilla</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€60</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="https://via.placeholder.com/400x300?text=Producto+4" alt="Producto 4"
+                                    class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Cámara compacta</h3>
+                                <p class="text-sm text-gray-500">Buen estado · Valencia</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€120</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </div>
     </main>
 
-    <footer class="bg-white border-t border-gray-200 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-                <div class="col-span-2 md:col-span-1">
-                    <div class="flex space-x-3 text-gray-500 text-2xl">
-                        <span>[FB]</span>
-                        <span>[TW]</span>
-                        <span>[IG]</span>
-                    </div>
-                </div>
-                <div>
-                    <p class="font-semibold mb-3">Título</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="font-semibold mb-3">Título</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="font-semibold mb-3">Título</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        sidebarToggle?.addEventListener('click', () => {
+            if (!document.body.querySelector('.mobile-sidebar-overlay')) {
+                const overlay = document.createElement('div');
+                overlay.className = 'mobile-sidebar-overlay fixed inset-0 bg-black/40 z-40 lg:hidden';
+                overlay.addEventListener('click', () => { document.body.removeChild(overlay); document.body.classList.remove('no-scroll'); sidebar.classList.add('hidden'); });
+                document.body.appendChild(overlay);
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('block');
+                document.body.classList.add('no-scroll');
+            }
+        });
 
+        const carousel = document.getElementById('carousel');
+        const prev = document.querySelector('.carousel-prev');
+        const next = document.querySelector('.carousel-next');
+
+        function scrollCarousel(dir = 1) {
+            if (!carousel) return;
+            const card = carousel.querySelector('article');
+            if (!card) return;
+            const gap = 16;
+            const cardWidth = card.getBoundingClientRect().width + gap;
+            carousel.scrollBy({ left: cardWidth * dir, behavior: 'smooth' });
+        }
+
+        prev?.addEventListener('click', () => scrollCarousel(-1));
+        next?.addEventListener('click', () => scrollCarousel(1));
+
+        carousel?.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') scrollCarousel(1);
+            if (e.key === 'ArrowLeft') scrollCarousel(-1);
+        });
+
+        document.querySelectorAll('#carousel article a').forEach(a => a.setAttribute('tabindex', '0'));
+    </script>
 </body>
 
 </html>
