@@ -9,14 +9,14 @@ function loadHeader() {
     <header class="bg-white shadow-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <div class="text-lg font-bold text-gray-800">Jogo-Landia</div>
+                <div class="text-2xl font-bold text-gray-800">Héroes en Miniatura</div>
                 
                 <!-- Menú normal para pantallas md y superiores -->
                 <nav class="hidden md:flex space-x-4 items-center">
-                    <a href="Landing.html" class="text-sm hover:text-indigo-600">Inicio</a>
-                    <a href="About.html" class="text-sm hover:text-indigo-600">About</a>
-                    <a href="Shop.html" class="text-sm hover:text-indigo-600">Tienda</a>
-                    <a href="Login.html" class="bg-black text-white px-4 py-2 rounded-full font-semibold text-xs ml-4 hover:bg-gray-700 transition">Login</a>
+                    <a href="Shop.html" class="text-md hover:text-indigo-600">Inicio</a>
+                    <a href="About.html" class="text-md hover:text-indigo-600">About</a>
+                    <a href="List.html" class="text-md hover:text-indigo-600">Cursos</a>
+                    <a href="Login.html" class="bg-black text-white px-4 py-2 rounded-full font-semibold text-sm ml-4 hover:bg-gray-700 transition">Login</a>
                 </nav>
                 
                 <!-- Botón hamburguesa para pantallas menores a md -->
