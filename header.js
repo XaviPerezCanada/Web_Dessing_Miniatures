@@ -15,8 +15,8 @@ function loadHeader() {
                 <nav class="hidden md:flex space-x-4 items-center">
                     <a href="Shop.html" class="text-md hover:text-indigo-600">Inicio</a>
                     <a href="About.html" class="text-md hover:text-indigo-600">About</a>
-                    <a href="List.html" class="text-md hover:text-indigo-600">Cursos</a>
-                    <a href="Login.html" class="bg-black text-white px-4 py-2 rounded-full font-semibold text-sm ml-4 hover:bg-gray-700 transition">Login</a>
+                    <a href="List.html" class="text-md hover:text-indigo-600">Tienda</a>
+                    <a href="Login.html" class="bg-black text-white px-4 py-2 rounded-md font-semibold text-sm ml-4 hover:bg-gray-700 transition">Login</a>
                 </nav>
                 
                 <!-- Botón hamburguesa para pantallas menores a md -->
