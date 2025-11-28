@@ -1,15 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Blocks</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Landing inspirada en Vinted — Compacta (Tailwind)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="header.js"></script>
+    <style>
+        /* mínimas reglas extra */
+        .snap-x {
+            scroll-snap-type: x mandatory;
+        }
+
+        .snap-center {
+            scroll-snap-align: center;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .carousel-arrow {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
 </head>
 
-<body class="bg-white text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
     <section class="relative h-96 flex items-center justify-center text-center mb-16">
         <div class="absolute inset-0 bg-gray-700 bg-opacity-50">
@@ -143,46 +167,374 @@
             </div>
         </section>
 
-    </main>
-
-    <footer class="bg-white border-t border-gray-200 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-                <div class="col-span-2 md:col-span-1">
-                    <div class="flex space-x-3 text-gray-500 text-2xl">
-                        <span>[FB]</span>
-                        <span>[TW]</span>
-                        <span>[IG]</span>
-                    </div>
-                </div>
-                <div>
-                    <p class="font-semibold mb-3">Título</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="font-semibold mb-3">Título</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="font-semibold mb-3">Título</p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                        <li><a href="#" class="hover:text-gray-800">Página</a></li>
-                    </ul>
-                </div>
+    <header class="bg-white shadow-sm sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="Shop.html" class="text-xl font-bold text-gray-800">Green Blocks</a>
+                <nav class="space-x-4 flex items-center">
+                    <a href="List.html" class="text-sm hover:text-indigo-600">Shop</a>
+                    <a href="#" class="text-sm hover:text-indigo-600">Cursos</a>
+                    <a href="#" class="text-sm hover:text-indigo-600">Personal</a>
+                    <button
+                        class="bg-black text-white px-4 py-2 rounded-sm font-semibold text-xs ml-4 hover:bg-gray-700 transition">Loggin</button>
+                </nav>
             </div>
         </div>
-    </footer>
+    </header>
 
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <div class="lg:flex lg:gap-8">
+            <!-- Filtros -->
+            <aside id="sidebar"
+                class="w-full lg:w-72 mb-6 lg:mb-0 lg:sticky lg:top-24 bg-white p-4 rounded-lg shadow-sm hidden lg:block">
+                <h3 class="font-semibold mb-3">Filtros</h3>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <p class="font-medium mb-2">Categoría</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria" value="fantasia"
+                                class="h-4 w-4" /> <span>Fantasia</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria"
+                                value="cienciaficcion" class="h-4 w-4" /> <span>Ciencia Ficcion</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria" value="terror"
+                                class="h-4 w-4" /> <span>Terror</span></label>
+                    </div>
+
+                    <div>
+                        <p class="font-medium mb-2">Nivel</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel" value="Principiante"
+                                class="h-4 w-4" /> <span>Principiante</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel" value="Intermedio"
+                                class="h-4 w-4" /> <span>Intermedio</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel" value="Avanzado"
+                                class="h-4 w-4" /> <span>Avanzado</span></label>
+                    </div>
+
+                    <div>
+                        <p class="font-medium mb-2">Escala</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala" value="28" class="hidden" /> 28 mm</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala" value="35" class="hidden" /> 1:35</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala" value="75" class="hidden" /> 1:75</label>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t">
+                        <button id="clearFilters" class="text-sm text-gray-600 hover:underline">Limpiar filtros</button>
+                    </div>
+                </div>
+            </aside>
+            <section class="flex-1">
+                <!-- Tutoriales -->
+                <section id="tutorials" class="mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-bold">Tutoriales</h2>
+                    </div>
+
+                    <div class="relative">
+                        <button id="prevBtn"
+                            class="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow carousel-arrow hidden sm:inline-flex"
+                            aria-controls="carousel" aria-label="Ir al tutorial anterior">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="carousel"
+                            class="overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-4 py-2 px-1 scroll-smooth"
+                            role="region" aria-label="Carrusel de tutoriales" tabindex="0">
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/videos.jpg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+
+                                    <h3 class="font-semibold">Como empezar a pintar</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Guía rápida: fotos, descripción y precio.</p>
+                                </a>
+                            </article>
+
+
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/video2.jpeg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                    <h3 class="font-semibold">Sombras y Iluminacion</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Consejos sencillos de iluminación y encuadre.
+                                    </p>
+                                </a>
+                            </article>
+
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/videos.jpg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                    <h3 class="font-semibold">Dioramas en 3 sencillos pasos</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Plantillas y forma de crear un gran diorama.
+                                    </p>
+                                </a>
+                            </article>
+
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/video2.jpeg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                    <h3 class="font-semibold">Consejos y Practicas utilies</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Ajusta gastos y aprende poco a poco.
+                                    </p>
+                                </a>
+                            </article>
+                        </div>
+
+                        <button id="nextBtn"
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow carousel-arrow hidden sm:inline-flex"
+                            aria-controls="carousel" aria-label="Ir al tutorial siguiente">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        <div class="absolute inset-x-0 bottom-0 flex justify-center gap-2 pb-2 sm:hidden">
+                            <button id="mobilePrev" class="bg-white p-2 rounded-full shadow carousel-arrow"
+                                aria-label="Anterior">&lt;</button>
+                            <button id="mobileNext" class="bg-white p-2 rounded-full shadow carousel-arrow"
+                                aria-label="Siguiente">&gt;</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Productos -->
+                <section id="productos">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="text-2xl font-bold">Productos</h2>
+                            <div class="text-sm text-gray-600">Mostrando <span class="font-semibold">24</span>
+                                resultados</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 lg:hidden">
+                        <button id="openFiltersBtn"
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md font-semibold"
+                            aria-controls="mobileFiltersModal" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L15 13.414V19a1 1 0 01-.553.894L10 22v-8.586L3.293 6.707A1 1 0 013 6V4z" />
+                            </svg>
+                            Filtros
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="asset/prod1.jpg" alt="Producto 1" class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Primer Producto para el curso de iluminacion</h3>
+                                <p class="text-sm text-gray-500">28 cm · Curso 1</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€25</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="asset/prod2.jpg" alt="Producto 2" class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Segunda Opcion para el Curso de Inicio</h3>
+                                <p class="text-sm text-gray-500">32 mm · Barcelona</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€15</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="asset/prod1.jpg" alt="Producto 3" class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Primer Producto para el curso de iluminacion</h3>
+                                <p class="text-sm text-gray-500">28 cm · Curso 1</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€25</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="bg-white rounded-lg shadow overflow-hidden">
+                            <div class="relative">
+                                <img src="asset/prod2.jpg" alt="Producto 4" class="w-full h-48 object-cover" />
+                                <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
+                                    aria-label="Favorito">
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path
+                                            d="M12 21l-1-0.6C5.7 16.4 2 13.3 2 9.5 2 6.4 4.4 4 7.5 4c1.9 0 3.7 1 4.5 2.5C12.8 5 14.6 4 16.5 4 19.6 4 22 6.4 22 9.5c0 3.8-3.7 6.9-9 11.9L12 21z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-medium">Segunda Opcion para el Curso de Inicio</h3>
+                                <p class="text-sm text-gray-500">32 mm · Barcelona</p>
+                                <div class="mt-2 flex items-center justify-between">
+                                    <div class="font-semibold">€15</div>
+                                    <button class="text-xs text-indigo-600">Ver</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal filtros -->
+    <div id="mobileFiltersModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true"
+        aria-labelledby="mobileFiltersTitle">
+        <div id="mobileFiltersBackdrop" class="fixed inset-0 bg-black bg-opacity-50"></div>
+        <div class="fixed inset-0 flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-md max-h-[90vh] overflow-auto rounded-lg shadow-xl p-6 relative">
+                <h3 id="mobileFiltersTitle" class="text-lg font-semibold mb-4">Filtros</h3>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <p class="font-medium mb-2">Categoría</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria_mobile"
+                                value="fantasia" class="h-4 w-4" /> <span>Fantasia</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria_mobile"
+                                value="cienciaficcion" class="h-4 w-4" /> <span>Ciencia Ficcion</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria_mobile"
+                                value="terror" class="h-4 w-4" /> <span>Terror</span></label>
+                    </div>
+
+                    <div>
+                        <p class="font-medium mb-2">Nivel</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel_mobile"
+                                value="Principiante" class="h-4 w-4" /> <span>Principiante</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel_mobile"
+                                value="Intermedio" class="h-4 w-4" /> <span>Intermedio</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel_mobile"
+                                value="Avanzado" class="h-4 w-4" /> <span>Avanzado</span></label>
+                    </div>
+
+                    <div>
+                        <p class="font-medium mb-2">Escala</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala_mobile" value="28" class="hidden" /> 28 mm</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala_mobile" value="35" class="hidden" /> 1:35</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala_mobile" value="75" class="hidden" /> 1:75</label>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t flex justify-between items-center">
+                        <button id="applyMobileFilters"
+                            class="bg-black text-white px-4 py-2 rounded-md font-semibold">Aplicar</button>
+                        <button id="closeMobileFilters" class="text-gray-600 px-3 py-2 rounded-md">Cerrar</button>
+                    </div>
+                </div>
+
+                <button id="closeMobileX" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+                    aria-label="Cerrar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            const $ = sel => document.querySelector(sel);
+            const $$ = sel => Array.from(document.querySelectorAll(sel));
+            const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+            /* ---------- Modal filtros móvil ---------- */
+            const openBtn = $('#openFiltersBtn');
+            const modal = $('#mobileFiltersModal');
+            const backdrop = $('#mobileFiltersBackdrop');
+            const closeBtns = [$('#closeMobileFilters'), $('#closeMobileX')].filter(Boolean);
+            const applyBtn = $('#applyMobileFilters');
+            let lastFocused = null;
+            function lockScroll() { document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden'; }
+            function unlockScroll() { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; }
+
+            function openModal() {
+                lastFocused = document.activeElement;
+                modal.classList.remove('hidden'); modal.setAttribute('aria-hidden', 'false');
+                openBtn && openBtn.setAttribute('aria-expanded', 'true');
+                const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable) focusable.focus();
+                lockScroll();
+            }
+            function closeModal() {
+                modal.classList.add('hidden'); modal.setAttribute('aria-hidden', 'true');
+                openBtn && openBtn.setAttribute('aria-expanded', 'false');
+                lastFocused && lastFocused.focus && lastFocused.focus();
+                unlockScroll();
+            }
+            if (openBtn) {
+                openBtn.addEventListener('click', (e) => {
+                    if (window.matchMedia('(min-width:1024px)').matches) return;
+                    openModal();
+                });
+            }
+            closeBtns.forEach(b => b && b.addEventListener('click', closeModal));
+            backdrop && backdrop.addEventListener('click', closeModal);
+            applyBtn && applyBtn.addEventListener('click', closeModal);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+            window.addEventListener('resize', () => { if (window.matchMedia('(min-width:1024px)').matches && !modal.classList.contains('hidden')) closeModal(); });
+
+            /* ---------- Carrusel ---------- */
+
+        })();
+    </script>
 </body>
 
 </html>
