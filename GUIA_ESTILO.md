@@ -494,23 +494,28 @@
 - Fondo blanco
 - Botones de redes sociales en grid de 2 columnas
 
-### Landing.html
-- Múltiples secciones con `<hr>` separadores
-- Grid de características con 3 columnas
-- Testimonios con borde rojo izquierdo
+![Login](asset\capturas_guia\1.png)
+
 
 ### Shop.html
 - Hero section con imagen de fondo
 - Contenido alternado (texto/imagen)
+
+![Shop](asset\capturas_guia\2.png)
 
 ### List.html
 - Sidebar de filtros (sticky en desktop)
 - Grid de productos responsive
 - Carrusel de tutoriales
 
+![Login](asset\capturas_guia\5.png)
+
 ### About.html
 - Layout de 2 columnas (texto/imagen)
 - Formulario de contacto al final
+
+![Login](asset\capturas_guia\4.png)
+![Login](asset\capturas_guia\7.png)
 
 ---
 
