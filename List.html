@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Landing inspirada en Vinted — Responsive (Tailwind)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Landing inspirada en Vinted — Compacta (Tailwind)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Small custom styles for the carousel + scroll snapping */
+        /* mínimas reglas extra */
         .snap-x {
             scroll-snap-type: x mandatory;
         }
@@ -24,27 +24,26 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        .carousel-arrow {
+            width: 40px;
+            height: 40px;
+        }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
+
     <header class="bg-white shadow-sm sticky top-0 z-30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <button id="sidebarToggle" class="lg:hidden p-2 rounded-md hover:bg-gray-100"
-                        aria-label="Abrir filtros">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                    <a href="#" class="text-xl font-semibold">MiMercado</a>
-                </div>
-                <nav class="hidden md:flex items-center gap-4">
-                    <a class="text-sm hover:underline" href="#tutorials">Tutorials</a>
-                    <a class="text-sm hover:underline" href="#productos">Productos</a>
-                    <button class="bg-indigo-600 text-white text-sm px-3 py-2 rounded-md">Vender</button>
+                <a href="Shop.html" class="text-xl font-bold text-gray-800">Green Blocks</a>
+                <nav class="space-x-4 flex items-center">
+                    <a href="List.html" class="text-sm hover:text-indigo-600">Shop</a>
+                    <a href="#" class="text-sm hover:text-indigo-600">Cursos</a>
+                    <a href="#" class="text-sm hover:text-indigo-600">Personal</a>
+                    <button
+                        class="bg-black text-white px-4 py-2 rounded-sm font-semibold text-xs ml-4 hover:bg-gray-700 transition">Loggin</button>
                 </nav>
             </div>
         </div>
@@ -52,54 +51,40 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
         <div class="lg:flex lg:gap-8">
+            <!-- Filtros -->
             <aside id="sidebar"
-                class="w-full lg:w-72 mb-6 lg:mb-0 lg:sticky lg:top-24 transform lg:translate-x-0 transition-transform duration-200 bg-white p-4 rounded-lg shadow-sm hidden lg:block">
+                class="w-full lg:w-72 mb-6 lg:mb-0 lg:sticky lg:top-24 bg-white p-4 rounded-lg shadow-sm hidden lg:block">
                 <h3 class="font-semibold mb-3">Filtros</h3>
-                <div class="space-y-4">
+                <div class="space-y-4 text-sm">
                     <div>
-                        <p class="text-sm font-medium mb-2">Categoría</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2">
-                                <input type="checkbox" name="categoria" value="ropa" class="h-4 w-4" />
-                                <span>Ropa</span>
-                            </label>
-                            <label class="flex items-center gap-2">
-                                <input type="checkbox" name="categoria" value="accesorios" class="h-4 w-4" />
-                                <span>Accesorios</span>
-                            </label>
-                            <label class="flex items-center gap-2">
-                                <input type="checkbox" name="categoria" value="electronica" class="h-4 w-4" />
-                                <span>Electrónica</span>
-                            </label>
-                        </div>
+                        <p class="font-medium mb-2">Categoría</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria" value="fantasia"
+                                class="h-4 w-4" /> <span>Fantasia</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria"
+                                value="cienciaficcion" class="h-4 w-4" /> <span>Ciencia Ficcion</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria" value="terror"
+                                class="h-4 w-4" /> <span>Terror</span></label>
                     </div>
 
                     <div>
-                        <p class="text-sm font-medium mb-2">Condición</p>
-                        <div class="space-y-2 text-sm">
-                            <label class="flex items-center gap-2">
-                                <input type="checkbox" name="estado" value="nuevo" class="h-4 w-4" />
-                                <span>Nuevo</span>
-                            </label>
-                            <label class="flex items-center gap-2">
-                                <input type="checkbox" name="estado" value="usado" class="h-4 w-4" />
-                                <span>Usado</span>
-                            </label>
-                        </div>
+                        <p class="font-medium mb-2">Nivel</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel" value="Principiante"
+                                class="h-4 w-4" /> <span>Principiante</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel" value="Intermedio"
+                                class="h-4 w-4" /> <span>Intermedio</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel" value="Avanzado"
+                                class="h-4 w-4" /> <span>Avanzado</span></label>
                     </div>
 
                     <div>
-                        <p class="text-sm font-medium mb-2">Talla</p>
+                        <p class="font-medium mb-2">Escala</p>
                         <div class="flex flex-wrap gap-2">
-                            <label class="text-sm p-2 border rounded cursor-pointer">
-                                <input type="checkbox" name="talla" value="s" class="hidden" /> S
-                            </label>
-                            <label class="text-sm p-2 border rounded cursor-pointer">
-                                <input type="checkbox" name="talla" value="m" class="hidden" /> M
-                            </label>
-                            <label class="text-sm p-2 border rounded cursor-pointer">
-                                <input type="checkbox" name="talla" value="l" class="hidden" /> L
-                            </label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala" value="28" class="hidden" /> 28 mm</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala" value="35" class="hidden" /> 1:35</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala" value="75" class="hidden" /> 1:75</label>
                         </div>
                     </div>
 
@@ -108,105 +93,124 @@
                     </div>
                 </div>
             </aside>
-
             <section class="flex-1">
+                <!-- Tutoriales -->
                 <section id="tutorials" class="mb-8">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-2xl font-bold">Tutoriales</h2>
-                        <div class="flex gap-2 items-center">
-                            <button aria-label="Anterior" class="carousel-prev p-2 rounded-md hover:bg-gray-100">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 19l-7-7 7-7" />
-                                </svg>
-                            </button>
-                            <button aria-label="Siguiente" class="carousel-next p-2 rounded-md hover:bg-gray-100">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
+                    </div>
+
+                    <div class="relative">
+                        <button id="prevBtn"
+                            class="absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow carousel-arrow hidden sm:inline-flex"
+                            aria-controls="carousel" aria-label="Ir al tutorial anterior">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        <div id="carousel"
+                            class="overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-4 py-2 px-1 scroll-smooth"
+                            role="region" aria-label="Carrusel de tutoriales" tabindex="0">
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/videos.jpg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+
+                                    <h3 class="font-semibold">Como empezar a pintar</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Guía rápida: fotos, descripción y precio.</p>
+                                </a>
+                            </article>
+
+
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/video2.jpeg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                    <h3 class="font-semibold">Sombras y Iluminacion</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Consejos sencillos de iluminación y encuadre.
+                                    </p>
+                                </a>
+                            </article>
+
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/videos.jpg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                    <h3 class="font-semibold">Dioramas en 3 sencillos pasos</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Plantillas y forma de crear un gran diorama.
+                                    </p>
+                                </a>
+                            </article>
+
+                            <article
+                                class="snap-center bg-white rounded-lg shadow p-4 flex-shrink-0 w-[80%] sm:w-[48%] md:w-[36%] lg:w-[280px]">
+                                <a href="#" class="group block" aria-label="Ver tutorial 1">
+                                    <div class="aspect-video bg-gray-200 rounded-md mb-3 overflow-hidden">
+                                        <img src="asset/video2.jpeg" alt="Miniatura: cómo empezar a pintar"
+                                            class="w-full h-full object-cover" loading="lazy" />
+                                    </div>
+                                    <h3 class="font-semibold">Consejos y Practicas utilies</h3>
+                                    <p class="text-sm text-gray-500 mt-1">Ajusta gastos y aprende poco a poco.
+                                    </p>
+                                </a>
+                            </article>
+                        </div>
+
+                        <button id="nextBtn"
+                            class="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white p-2 rounded-full shadow carousel-arrow hidden sm:inline-flex"
+                            aria-controls="carousel" aria-label="Ir al tutorial siguiente">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        <div class="absolute inset-x-0 bottom-0 flex justify-center gap-2 pb-2 sm:hidden">
+                            <button id="mobilePrev" class="bg-white p-2 rounded-full shadow carousel-arrow"
+                                aria-label="Anterior">&lt;</button>
+                            <button id="mobileNext" class="bg-white p-2 rounded-full shadow carousel-arrow"
+                                aria-label="Siguiente">&gt;</button>
+                        </div>
+                    </div>
+                </section>
+                <!-- Productos -->
+                <section id="productos">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h2 class="text-2xl font-bold">Productos</h2>
+                            <div class="text-sm text-gray-600">Mostrando <span class="font-semibold">24</span>
+                                resultados</div>
                         </div>
                     </div>
 
-                    <div id="carousel"
-                        class="overflow-x-auto scrollbar-hide snap-x snap-mandatory flex gap-4 py-2 px-1">
-
-                        <!-- Card 1 -->
-                        <article
-                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
-                            <a href="#" class="group block" aria-label="Ver tutorial 1">
-                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
-                                    <!-- Thumbnail (placeholder) -->
-                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor">
-                                        <path d="M5 3v18l15-9L5 3z" />
-                                    </svg>
-                                </div>
-                                <h3 class="font-semibold">Cómo publicar tu primer producto</h3>
-                                <p class="text-sm text-gray-500 mt-1">Guía rápida: fotos, descripción y precio.</p>
-                            </a>
-                        </article>
-
-                        <!-- Card 2 -->
-                        <article
-                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
-                            <a href="#" class="group block" aria-label="Ver tutorial 2">
-                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
-                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor">
-                                        <path d="M5 3v18l15-9L5 3z" />
-                                    </svg>
-                                </div>
-                                <h3 class="font-semibold">Mejorar fotos para vender más</h3>
-                                <p class="text-sm text-gray-500 mt-1">Consejos sencillos de iluminación y encuadre.</p>
-                            </a>
-                        </article>
-
-                        <!-- Card 3 -->
-                        <article
-                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
-                            <a href="#" class="group block" aria-label="Ver tutorial 3">
-                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
-                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor">
-                                        <path d="M5 3v18l15-9L5 3z" />
-                                    </svg>
-                                </div>
-                                <h3 class="font-semibold">Comunicar con compradores</h3>
-                                <p class="text-sm text-gray-500 mt-1">Plantillas y forma de negociar.</p>
-                            </a>
-                        </article>
-
-                        <!-- Card 4 (ejemplo adicional) -->
-                        <article
-                            class="min-w-[280px] max-w-sm snap-center bg-white rounded-lg shadow p-4 flex-shrink-0">
-                            <a href="#" class="group block" aria-label="Ver tutorial 4">
-                                <div class="aspect-video bg-gray-200 rounded-md mb-3 flex items-center justify-center">
-                                    <svg class="w-16 h-16 opacity-70" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor">
-                                        <path d="M5 3v18l15-9L5 3z" />
-                                    </svg>
-                                </div>
-                                <h3 class="font-semibold">Envíos: cómo calcularlos</h3>
-                                <p class="text-sm text-gray-500 mt-1">Ajusta gastos y plazos para ganar confianza.</p>
-                            </a>
-                        </article>
-
-                    </div>
-                </section>
-
-                <section id="productos">
-                    <div class="flex items-center justify-between mb-4">
-                        <h2 class="text-2xl font-bold">Productos</h2>
-                        <div class="text-sm text-gray-600">Mostrando 24 resultados</div>
+                    <div class="mb-4 lg:hidden">
+                        <button id="openFiltersBtn"
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-md font-semibold"
+                            aria-controls="mobileFiltersModal" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L15 13.414V19a1 1 0 01-.553.894L10 22v-8.586L3.293 6.707A1 1 0 013 6V4z" />
+                            </svg>
+                            Filtros
+                        </button>
                     </div>
 
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                         <article class="bg-white rounded-lg shadow overflow-hidden">
                             <div class="relative">
-                                <img src="https://via.placeholder.com/400x300?text=Producto+1" alt="Producto 1"
-                                    class="w-full h-48 object-cover" />
+                                <img src="asset/prod1.jpg" alt="Producto 1" class="w-full h-48 object-cover" />
                                 <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
                                     aria-label="Favorito">
                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -216,10 +220,10 @@
                                 </button>
                             </div>
                             <div class="p-3">
-                                <h3 class="font-medium">Chaqueta vintage</h3>
-                                <p class="text-sm text-gray-500">Talla M · Madrid</p>
+                                <h3 class="font-medium">Primer Producto para el curso de iluminacion</h3>
+                                <p class="text-sm text-gray-500">28 cm · Curso 1</p>
                                 <div class="mt-2 flex items-center justify-between">
-                                    <div class="font-semibold">€35</div>
+                                    <div class="font-semibold">€25</div>
                                     <button class="text-xs text-indigo-600">Ver</button>
                                 </div>
                             </div>
@@ -227,8 +231,7 @@
 
                         <article class="bg-white rounded-lg shadow overflow-hidden">
                             <div class="relative">
-                                <img src="https://via.placeholder.com/400x300?text=Producto+2" alt="Producto 2"
-                                    class="w-full h-48 object-cover" />
+                                <img src="asset/prod2.jpg" alt="Producto 2" class="w-full h-48 object-cover" />
                                 <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
                                     aria-label="Favorito">
                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -238,10 +241,10 @@
                                 </button>
                             </div>
                             <div class="p-3">
-                                <h3 class="font-medium">Zapatillas running</h3>
-                                <p class="text-sm text-gray-500">Talla 42 · Barcelona</p>
+                                <h3 class="font-medium">Segunda Opcion para el Curso de Inicio</h3>
+                                <p class="text-sm text-gray-500">32 mm · Barcelona</p>
                                 <div class="mt-2 flex items-center justify-between">
-                                    <div class="font-semibold">€49</div>
+                                    <div class="font-semibold">€15</div>
                                     <button class="text-xs text-indigo-600">Ver</button>
                                 </div>
                             </div>
@@ -249,8 +252,7 @@
 
                         <article class="bg-white rounded-lg shadow overflow-hidden">
                             <div class="relative">
-                                <img src="https://via.placeholder.com/400x300?text=Producto+3" alt="Producto 3"
-                                    class="w-full h-48 object-cover" />
+                                <img src="asset/prod1.jpg" alt="Producto 3" class="w-full h-48 object-cover" />
                                 <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
                                     aria-label="Favorito">
                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -260,10 +262,10 @@
                                 </button>
                             </div>
                             <div class="p-3">
-                                <h3 class="font-medium">Bolso de piel</h3>
-                                <p class="text-sm text-gray-500">Único · Sevilla</p>
+                                <h3 class="font-medium">Primer Producto para el curso de iluminacion</h3>
+                                <p class="text-sm text-gray-500">28 cm · Curso 1</p>
                                 <div class="mt-2 flex items-center justify-between">
-                                    <div class="font-semibold">€60</div>
+                                    <div class="font-semibold">€25</div>
                                     <button class="text-xs text-indigo-600">Ver</button>
                                 </div>
                             </div>
@@ -271,8 +273,7 @@
 
                         <article class="bg-white rounded-lg shadow overflow-hidden">
                             <div class="relative">
-                                <img src="https://via.placeholder.com/400x300?text=Producto+4" alt="Producto 4"
-                                    class="w-full h-48 object-cover" />
+                                <img src="asset/prod2.jpg" alt="Producto 4" class="w-full h-48 object-cover" />
                                 <button class="absolute top-2 right-2 bg-white p-2 rounded-full shadow-sm"
                                     aria-label="Favorito">
                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -282,10 +283,10 @@
                                 </button>
                             </div>
                             <div class="p-3">
-                                <h3 class="font-medium">Cámara compacta</h3>
-                                <p class="text-sm text-gray-500">Buen estado · Valencia</p>
+                                <h3 class="font-medium">Segunda Opcion para el Curso de Inicio</h3>
+                                <p class="text-sm text-gray-500">32 mm · Barcelona</p>
                                 <div class="mt-2 flex items-center justify-between">
-                                    <div class="font-semibold">€120</div>
+                                    <div class="font-semibold">€15</div>
                                     <button class="text-xs text-indigo-600">Ver</button>
                                 </div>
                             </div>
@@ -296,43 +297,110 @@
         </div>
     </main>
 
+    <!-- Modal filtros -->
+    <div id="mobileFiltersModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true"
+        aria-labelledby="mobileFiltersTitle">
+        <div id="mobileFiltersBackdrop" class="fixed inset-0 bg-black bg-opacity-50"></div>
+        <div class="fixed inset-0 flex items-center justify-center p-4">
+            <div class="bg-white w-full max-w-md max-h-[90vh] overflow-auto rounded-lg shadow-xl p-6 relative">
+                <h3 id="mobileFiltersTitle" class="text-lg font-semibold mb-4">Filtros</h3>
+                <div class="space-y-4 text-sm">
+                    <div>
+                        <p class="font-medium mb-2">Categoría</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria_mobile"
+                                value="fantasia" class="h-4 w-4" /> <span>Fantasia</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria_mobile"
+                                value="cienciaficcion" class="h-4 w-4" /> <span>Ciencia Ficcion</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="categoria_mobile"
+                                value="terror" class="h-4 w-4" /> <span>Terror</span></label>
+                    </div>
+
+                    <div>
+                        <p class="font-medium mb-2">Nivel</p>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel_mobile"
+                                value="Principiante" class="h-4 w-4" /> <span>Principiante</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel_mobile"
+                                value="Intermedio" class="h-4 w-4" /> <span>Intermedio</span></label>
+                        <label class="flex items-center gap-2"><input type="checkbox" name="nivel_mobile"
+                                value="Avanzado" class="h-4 w-4" /> <span>Avanzado</span></label>
+                    </div>
+
+                    <div>
+                        <p class="font-medium mb-2">Escala</p>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala_mobile" value="28" class="hidden" /> 28 mm</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala_mobile" value="35" class="hidden" /> 1:35</label>
+                            <label class="p-2 border rounded cursor-pointer text-sm"><input type="checkbox"
+                                    name="escala_mobile" value="75" class="hidden" /> 1:75</label>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t flex justify-between items-center">
+                        <button id="applyMobileFilters"
+                            class="bg-black text-white px-4 py-2 rounded-md font-semibold">Aplicar</button>
+                        <button id="closeMobileFilters" class="text-gray-600 px-3 py-2 rounded-md">Cerrar</button>
+                    </div>
+                </div>
+
+                <button id="closeMobileX" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+                    aria-label="Cerrar">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        const sidebar = document.getElementById('sidebar');
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        sidebarToggle?.addEventListener('click', () => {
-            if (!document.body.querySelector('.mobile-sidebar-overlay')) {
-                const overlay = document.createElement('div');
-                overlay.className = 'mobile-sidebar-overlay fixed inset-0 bg-black/40 z-40 lg:hidden';
-                overlay.addEventListener('click', () => { document.body.removeChild(overlay); document.body.classList.remove('no-scroll'); sidebar.classList.add('hidden'); });
-                document.body.appendChild(overlay);
-                sidebar.classList.remove('hidden');
-                sidebar.classList.add('block');
-                document.body.classList.add('no-scroll');
+        (() => {
+            const $ = sel => document.querySelector(sel);
+            const $$ = sel => Array.from(document.querySelectorAll(sel));
+            const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+            /* ---------- Modal filtros móvil ---------- */
+            const openBtn = $('#openFiltersBtn');
+            const modal = $('#mobileFiltersModal');
+            const backdrop = $('#mobileFiltersBackdrop');
+            const closeBtns = [$('#closeMobileFilters'), $('#closeMobileX')].filter(Boolean);
+            const applyBtn = $('#applyMobileFilters');
+            let lastFocused = null;
+            function lockScroll() { document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden'; }
+            function unlockScroll() { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; }
+
+            function openModal() {
+                lastFocused = document.activeElement;
+                modal.classList.remove('hidden'); modal.setAttribute('aria-hidden', 'false');
+                openBtn && openBtn.setAttribute('aria-expanded', 'true');
+                const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable) focusable.focus();
+                lockScroll();
             }
-        });
+            function closeModal() {
+                modal.classList.add('hidden'); modal.setAttribute('aria-hidden', 'true');
+                openBtn && openBtn.setAttribute('aria-expanded', 'false');
+                lastFocused && lastFocused.focus && lastFocused.focus();
+                unlockScroll();
+            }
+            if (openBtn) {
+                openBtn.addEventListener('click', (e) => {
+                    if (window.matchMedia('(min-width:1024px)').matches) return;
+                    openModal();
+                });
+            }
+            closeBtns.forEach(b => b && b.addEventListener('click', closeModal));
+            backdrop && backdrop.addEventListener('click', closeModal);
+            applyBtn && applyBtn.addEventListener('click', closeModal);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+            window.addEventListener('resize', () => { if (window.matchMedia('(min-width:1024px)').matches && !modal.classList.contains('hidden')) closeModal(); });
 
-        const carousel = document.getElementById('carousel');
-        const prev = document.querySelector('.carousel-prev');
-        const next = document.querySelector('.carousel-next');
+            /* ---------- Carrusel ---------- */
 
-        function scrollCarousel(dir = 1) {
-            if (!carousel) return;
-            const card = carousel.querySelector('article');
-            if (!card) return;
-            const gap = 16;
-            const cardWidth = card.getBoundingClientRect().width + gap;
-            carousel.scrollBy({ left: cardWidth * dir, behavior: 'smooth' });
-        }
-
-        prev?.addEventListener('click', () => scrollCarousel(-1));
-        next?.addEventListener('click', () => scrollCarousel(1));
-
-        carousel?.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') scrollCarousel(1);
-            if (e.key === 'ArrowLeft') scrollCarousel(-1);
-        });
-
-        document.querySelectorAll('#carousel article a').forEach(a => a.setAttribute('tabindex', '0'));
+        })();
     </script>
 </body>
 
